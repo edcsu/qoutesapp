@@ -12,30 +12,27 @@
           column
         >
           <v-chip
-            v-for="tag in tags"
+            v-for="tag in qoute.tags"
             :key="tag"
           >
             {{ tag }}
           </v-chip>
         </v-chip-group>
       </v-card-text>
-        <v-card-title class="headline">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-          Sint quas aliquam delectus repellendus incidunt dolorum aperiam odio voluptatum nihil! 
-          Quasi consequatur dolore necessitatibus nihil inventore debitis dicta porro ipsum quod.
+        <v-card-title v-text="qoute.content" class="headline">
         </v-card-title>
-        <v-card-subtitle>John doe</v-card-subtitle>
+        <v-card-subtitle v-text="qoute.author"></v-card-subtitle>
         <v-card-actions>
           <v-spacer />
-          <v-btn color="primary"> Generate </v-btn>
+          <v-btn color="primary"  @click.prevent="emitEvent()"> Generate </v-btn>
         </v-card-actions>
       </v-card>
 </template>
 
 <script>
 export default {
+    props: [ 'qoute', 'loading'],
     data: () => ({
-        loading: false,
         tags: [
             'Work',
             'Home Improvement',
@@ -48,6 +45,11 @@ export default {
             'Creative Writing',
         ],
     }),
+    methods: {
+    emitEvent() {
+      this.$emit("generate");
+    }
+  }
 }
 </script>
 
