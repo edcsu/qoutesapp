@@ -9,8 +9,24 @@
         <Nuxt />
       </v-container>
     </v-main>
-    <v-footer :absolute="!fixed" app>
+    <v-footer app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-tooltip color="purple lighten-2" top nudge-left="70">
+        <template v-slot:activator="{ on }">
+          <v-btn
+            href="https://www.linkedin.com/in/ssewannonda-keith-edwin-443303129"
+            target="_blank"
+            icon
+            v-on="on"
+          >
+            <v-icon>mdi-linkedin</v-icon>
+          </v-btn>
+        </template>
+        <span>
+          Connect on LinkedIn
+          <v-icon class="">mdi-hand-pointing-down</v-icon>
+        </span>
+      </v-tooltip>
     </v-footer>
   </v-app>
 </template>
