@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <Qoutecard :qoute="qoute" :loading="loading" @generate="getQoute"/>
+      <Qoutecard class="my-8" :qoute="qoute" :loading="loading" @generate="getQoute"/>
     </v-col>
   </v-row>
 </template>
